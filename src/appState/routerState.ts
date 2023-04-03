@@ -1,15 +1,5 @@
 import { makeAutoObservable, autorun } from 'mobx';
-// import { EventsType } from 'src/api/fetchEvents';
-// import { CreateEventFormState } from 'src/ui/components/CreateEvent/CreateEventForm/CreateEventForm.state';
-// import { EventManagementPopUpState } from 'src/ui/components/EventManagement/EventManagementPopUp/EventManagementPopUp.state';
 import { assertNever } from '../utils/assertNever';
-
-export type PageEventsCreateType = {
-    readonly type: 'createEventExit'
-} | {
-    readonly type: 'createEventSuccess'
-};
-
 
 export type PageType = {
         readonly type: 'login';
@@ -27,7 +17,6 @@ export class Router {
 
     private constructor(view: PageType) { //startingUrl: string) {
         this.view = view;
-        // this.view = Router.fromUrlString(startingUrl);
         makeAutoObservable(this);
     }
 
@@ -88,7 +77,6 @@ export class Router {
         if (url.startsWith('/') === false) {
             return new Router({
                 type: 'accounts-list',
-                // popup: new PageEventsRouter()
             });
         }
     
@@ -109,7 +97,6 @@ export class Router {
     
         return new Router({
             type: 'accounts-list',
-            // popup: new PageEventsRouter()
         });
     }
 }
