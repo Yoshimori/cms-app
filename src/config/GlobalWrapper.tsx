@@ -1,4 +1,3 @@
-import React from 'react';
 import { Global, css } from '@emotion/react';
 import poppinsRegular from '../assets/fonts/poppins-regular.ttf';
 import poppinsMedium from '../assets/fonts/poppins-medium.ttf';
@@ -36,6 +35,7 @@ export const GlobalWrapper = (): JSX.Element => {
                     padding: 0;
                     margin: 0;
                     font-family: 'Poppins', sans-serif;
+                    background-color: #fff;
                 }
             `}
         />

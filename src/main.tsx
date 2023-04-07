@@ -1,28 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './App';
 import { AppState } from './appState/appState';
 import { Provider } from './appState/context';
-import { Router } from './appState/routerState';
+import { RouterProvider } from 'react-router-dom';
+import { GlobalWrapper } from './config/GlobalWrapper';
+import { Global } from '@emotion/react';
+import { emotionReset } from './config/reset.style';
+import { router } from './routes/routes';
 
-const getCurrentUrl = (): string => window.location.pathname + window.location.search;
-const startingUrl = getCurrentUrl();
-const [routerPlugin, router] = Router.create(startingUrl);
-
-window.addEventListener('popstate', () => {
-    routerPlugin.setUrl(getCurrentUrl());
-});
-
-routerPlugin.startAutorun((url: string) => {
-    window.history.pushState(null, '', url);
-});
-
-const appState = new AppState(router);
+const appState = new AppState();
 
 const vdom = (
     <React.StrictMode>
         <Provider value={appState}>
-            <App />
+            <GlobalWrapper />
+            <Global styles={emotionReset}/> 
+            <RouterProvider router={router} />
         </Provider>
     </React.StrictMode>
 );
