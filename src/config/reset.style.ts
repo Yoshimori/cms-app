@@ -150,6 +150,7 @@ export const emotionReset = css`
         font-size: 14px;
         /* line-height: 1.285; ??? */
         background-color: #F5F6F8;
+        overflow: hidden
     }
 
         input[type="search"]::-webkit-search-decoration,
@@ -163,6 +164,7 @@ export const emotionReset = css`
     body,
     #root {
         height: 100%;
+        overflow-x: hidden;
     }
 
     // SCROLL STYLE

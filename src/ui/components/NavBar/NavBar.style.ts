@@ -10,26 +10,42 @@ export const NavBarContainer = styled('div')<NavBarTypes>`
     flex-direction: column;
     height: 100%;
 
-    background-color: #071d53;
+    background: #ebebeb;
     width: 100%;
-    max-width: 260px;
+    max-width: 68px;
     color: #fff;
     flex: 1 0 auto;
+    position: relative;
     @media(max-width: 769px) {
-        transition: .2s ease;
+        transition: .2s ease-in-out;
         position: fixed;
         z-index: 9;
-        left: ${(props):string => props.isOpen === true ? '0px' : "-260px" };
+        left: ${(props):string => props.isOpen === true ? '0px' : "-68px" };
+    }
+
+    &:before {
+        background: linear-gradient(to right,transparent,#aaa);
+        content: "";
+        height: 100%;
+        opacity: .2;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        width: 0.8rem;
+        z-index: 2;
     }
 `;
 
 export const NavBarNav = styled('nav')`
-    padding: 10px 0;
+    /* padding: 10px 0; */
     height: 100%;
+    @media(max-width: 769px) {
+        height: auto;
+    }
     ul {
         height: 100%;
         margin: 0;
-        padding: 10px;
+        /* padding: 10px; */
         display: flex;
         flex-direction: column;
         li {
@@ -38,7 +54,7 @@ export const NavBarNav = styled('nav')`
                 margin-top: auto;
             }
             a {
-                color: #a9aaad;
+                color: #616161;
                 text-decoration: none;
                 display: flex;
                 align-items: center;
@@ -46,28 +62,8 @@ export const NavBarNav = styled('nav')`
 
             span {
                 display: block;
-                margin-left: 10px;
             }
         }
-    }
-`;
-
-export const MainLogo = styled('div')`
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #063777;
-    height: 71px;
-    
-    img {
-        width: 50px;
-        height: 50px;
-    }
-
-    h1 {
-        font-size: 18px;
-        margin-left: 15px;
-        font-weight: bold;
     }
 `;
 
@@ -76,36 +72,60 @@ interface PropsTypes  {
 }
 
 export const NavLinkNew = styled(NavLink)<PropsTypes>`
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: ${(props):string => props.isActive === true ? '#063777' : "transparent" };
+    height: 56px;
+    background: transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     span {
-        color: ${(props):string => props.isActive === true ? '#fff' : "#a9aaad" };
-        font-size: 15px;
+        color: ${(props):string => props.isActive === true ? '#5b5fc7' : "#616161" };
+        font-size: 10px;
     }
     svg {
-        color: ${(props):string => props.isActive === true ? '#fff' : "#a9aaad" };
+        color: ${(props):string => props.isActive === true ? '#5b5fc7' : "#616161" };
+    }
+
+    &:before {
+        content: ${(props):string => props.isActive === true ? '""' : "none" };
+        font-size: 15px;
+        border-left: solid 0.2rem #5b5fc7;
+        border-radius: 0.4rem;
+        background: #5b5fc7;
+        height: 4.8rem;
+        left: 0.2rem;
+        position: absolute;
+        top: 0.4rem;
+    }
+
+    &:hover {
+        background: #f5f5f5;
+
+        span, svg {
+            color: #5b5fc7;
+        }
     }
 `;
 
+
+
 export const MenuButtonContainer = styled('div')<NavBarTypes>`
-    padding: 11px 11px 1px 9px;
+    padding: 11px 11px 1px 15px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 
-    background-color: #063777;
     display: none;
     position: fixed;
-    top: 15px;
+    top: 4px;
     left: 0;
     transition: .2s ease;
 
     @media(max-width: 769px) {
         display: block;
-        top: 13px;
-        left: ${(props):string => props.isOpen === true ? '259px' : "0px" };
+        top: 4px;
+        left: 3px;
     }
 `;
 

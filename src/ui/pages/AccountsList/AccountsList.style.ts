@@ -1,19 +1,17 @@
 import styled from '@emotion/styled';
 
 export const PageContainer = styled('div')`
-    padding: 24px 40px;
+    padding: 16px 32px;
+    width: 100%;
     @media(max-width: 769px) {
         padding: 15px;
     }
 `;
 
 export const PageContainerTitle = styled('h1')`
-    font-size: 36px;
     font-weight: bold;
     margin: 0;
-    @media(max-width: 769px) {
-        font-size: 30px;
-    }
+    color: #242424;
 `;
 
 export const PageContentWrapper = styled('div')`
